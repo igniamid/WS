@@ -6,6 +6,9 @@ date: "`r Sys.Date()`"
 
 ## Introduction
 
+
+- Gitlab-repository: <https://gitlab.com/muuankarski/tallinn_geodata_20230125>
+
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ```{r}
@@ -17,7 +20,11 @@ Quarto enables you to weave together content and executable code into a finished
 Diipaa daapaa
 
 ```{r}
-plot(cars)
+library(geofi)
+muni <- get_municipalities()
+library(sf)
+library(ggplot2)
+muni %>% st_union() %>% ggplot() + geom_sf()
 ```
 
 ## Workshop on Wednesday

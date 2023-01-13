@@ -3,6 +3,7 @@
 !.gitignore
 !*.qmd
 !*.R
+!*.md
 !_quarto.yml
 !*/
 .Rproj.user
@@ -10,3 +11,4 @@
 .RData
 .Ruserdata
 /.quarto/
+run.R

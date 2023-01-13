@@ -1,0 +1,29 @@
+---
+title: "Spatial data manipulation using R-language"
+author: Markus Kainu
+date: "`r Sys.Date()`"
+---
+
+## Introduction
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+1 + 1
+```
+
+## Pre-workshop assignment
+
+Diipaa daapaa
+
+```{r}
+plot(cars)
+```
+
+## Workshop on Wednesday
+
+Here we go again!
+
+
+<iframe class="slide-deck" src="slides/" width = "100%" height = "660px"></iframe>
+

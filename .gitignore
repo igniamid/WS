@@ -1,0 +1,12 @@
+*
+# But not these files...
+!.gitignore
+!*.qmd
+!*.R
+!_quarto.yml
+!*/
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/.quarto/

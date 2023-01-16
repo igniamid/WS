@@ -1,25 +1,28 @@
 ---
-title: "Spatial data manipulation using R-language"
+title: "Geospatial data in R"
+subtitle: "Workshop in Tallinn university on Jan 25th 2023 at 14-15.30"
 author: Markus Kainu
 date: "`r Sys.Date()`"
+format:
+  html:
+    toc: true
+    toc-location: right
+    theme: simplex
 ---
 
-## Introduction
+
+## Preface
+
+Thank you for signing up for Wednesday afternoon data workshop. 
 
 
-- Gitlab-repository: <https://gitlab.com/muuankarski/tallinn_geodata_20230125>
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-```{r}
-1 + 1
-```
 
 ## Pre-workshop assignment
 
 Diipaa daapaa
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 library(geofi)
 muni <- get_municipalities()
 library(sf)
@@ -29,8 +32,13 @@ muni %>% st_union() %>% ggplot() + geom_sf()
 
 ## Workshop on Wednesday
 
-Here we go again!
+### Slides
 
 
 <iframe class="slide-deck" src="slides/" width = "100%" height = "660px"></iframe>
+
+
+### Hands-on demo
+
+We will interactively go through the script [`demo.R`](./demo.R) using you preferred computing environment.
 

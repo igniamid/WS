@@ -22,12 +22,13 @@ If you are new to R, I recommend registering to [posit.cloud](https://posit.clou
 
 You can register to [posit.cloud](https://posit.cloud) either by creating an account using email or using your existing Github or Google accounts. After signing up, log in to the system.
 
-Workshop material is hosted at Gitlab <https://gitlab.com/muuankarski/tallinn_geodata_20230125/>. In the video below, I will show the process of logging into Posit.cloud, creating a project from a git repository and running the pre-workshop assignments.
+Workshop material is hosted at Gitlab <https://gitlab.com/muuankarski/tallinn_geodata_20230125/> and at post.cloud you should create a new project from it. 
 
 ### Pre-workshop assignment
 
-Paste the content of these two code chunks to your R console
+Fire up your preferred R environment. Create a **new project** from **git repository** and paste this Gitlab repository as a source `https://gitlab.com/muuankarski/tallinn_geodata_20230125/`.
 
+Finally, paste these two *code chunks* to your R console
 
 *Chunk 1: Install packages and check if it worked*
 
@@ -56,6 +57,10 @@ req <- req %>% req_body_json(lista)
 resp <- req_perform(req)
 resp_body_string(resp)
 ```
+
+**The process above, logging into Posit.cloud, creating a project from a git repository and running the pre-workshop assignments, is shown in the short video below!**
+
+<video controls src="video/tallinn_pre.mp4" width = "100%"></video>
 
 ## Workshop on Wednesday
 

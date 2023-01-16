@@ -1,5 +1,8 @@
 # Libraries required
-libs <- c("sf","ggplot2","geofi","dplyr","tidyr","mapview","leaflet","httr2","fs")
+pkgs <- c("sf","ggplot2","geofi","dplyr","tidyr","mapview","leaflet","httr2","fs")
+install.packages(pkgs)
+
+
 
 
 # Shapefile
@@ -34,3 +37,9 @@ shape <- sf::st_read(filename)
 
 
 
+
+library(geofi)
+muni <- get_municipalities()
+library(sf)
+library(ggplot2)
+muni %>% st_union() %>% ggplot() + geom_sf()

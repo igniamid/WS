@@ -1,6 +1,6 @@
 ---
 title: "Geospatial data in R"
-subtitle: "Workshop in Tallinn university on Jan 25th 2023 at 14-15.30"
+subtitle: "Workshop in Tallinn university on Jan 25th 2023"
 author: Markus Kainu
 date: "`r Sys.Date()`"
 format:
@@ -10,35 +10,61 @@ format:
     theme: simplex
 ---
 
-
-## Preface
-
-Thank you for signing up for Wednesday afternoon data workshop. 
-
-
-
-
 ## Pre-workshop assignment
 
-Diipaa daapaa
+Thank you for signing up for Wednesday afternoon data workshop.
 
-```{r, message = FALSE, warning = FALSE}
-library(geofi)
-muni <- get_municipalities()
-library(sf)
-library(ggplot2)
-muni %>% st_union() %>% ggplot() + geom_sf()
+To complete the hands on demo at the end, you need a computer and for that we have two options: [posit.cloud](https://posit.cloud) -platform or your own with late version of [R](https://www.r-project.org/)-software (R \> 4.0) installed.
+
+If you are new to R, I recommend registering to [posit.cloud](https://posit.cloud) as it will just work. If you are more experienced with R or you want to have things as your things, please go on and install [R](https://www.r-project.org/), [git](https://git-scm.com/) and an IDE for R. AS IDE we will use Posits [RStudio](https://posit.co/download/rstudio-desktop/), but you can just as well use [vscode](https://code.visualstudio.com/docs/languages/r) or [Emacs](https://ess.r-project.org/).
+
+### Registering to posit.cloud
+
+You can register to [posit.cloud](https://posit.cloud) either by creating an account using email or using your existing Github or Google accounts. After signing up, log in to the system.
+
+Workshop material is hosted at Gitlab <https://gitlab.com/muuankarski/tallinn_geodata_20230125/>. In the video below, I will show the process of logging into Posit.cloud, creating a project from a git repository and running the pre-workshop assignments.
+
+### Pre-workshop assignment
+
+Paste the content of these two code chunks to your R console
+
+
+*Chunk 1: Install packages and check if it worked*
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+pkgs <- c("sf","ggplot2","geofi","dplyr","tidyr","mapview","leaflet","httr2","fs")
+install.packages(pkgs)
+installed_pkgs <- rownames(installed.packages())
+if (all(pkgs %in% installed_pkgs)) print("Success") else print("Try installing again or change to posit.cloud!")
+```
+
+*Chunk 2: Submit your session info to the instructor using a web api*
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+library(httr2)
+req <- request("http://91.145.79.96:3310/workshop_check")
+sessi <- sessionInfo()
+lista <- list(Rver = sessi$R.version,
+              platform = sessi$platform,
+              locale = sessi$locale,
+              running = sessi$running,
+              installed_sf= "sf" %in% installed_pkgs,
+              installed_geofi= "geofi" %in% installed_pkgs,
+              installed_geofi= "leaflet" %in% installed_pkgs
+              )
+req <- req %>% req_body_json(lista)
+resp <- req_perform(req)
+resp_body_string(resp)
 ```
 
 ## Workshop on Wednesday
 
 ### Slides
 
+<iframe class="slide-deck" src="slides/" width="100%" height="660px">
 
-<iframe class="slide-deck" src="slides/" width = "100%" height = "660px"></iframe>
-
+</iframe>
 
 ### Hands-on demo
 
-We will interactively go through the script [`demo.R`](./demo.R) using you preferred computing environment.
-
+We will interactively go through the script [`workshop.R`](https://gitlab.com/muuankarski/tallinn_geodata_20230125/-/blob/master/workshop.R) using you preferred computing environment.
